@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DataBase</title>
+    </head>
+    <body>
+        <table id="telephone" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <td>uid</td>
+                    <td>Last Name</td>
+                    <td>First Name</td>
+                    <td>Middle Name</td>
+                    <td>Street</td>
+                    <td>Build</td>
+                    <td>Block</td>
+                    <td>Apartment</td>
+                    <td>Telephone</td>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for row in users_list %}
+                    <tr>
+                        <td><a href="/contact/{{row[0]}}"> update </a></td>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td><a href="/delete/{{row[0]}}">delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+
+        <form action="{{url_for('add_student')}}" method="POST">
+            <input type="text" class="form-control" name="lname" placeholder="Last Name">
+            <input type="text" class="form-control" name="fname" placeholder="First Name">
+            <input type="text" class="form-control" name="mname" placeholder="Middle Name">
+            <input type="text" class="form-control" name="street" placeholder="Street">
+            <input type="text" class="form-control" name="build" placeholder="Build">
+            <input type="text" class="form-control" name="build_k" placeholder="Block">
+            <input type="text" class="form-control" name="apartment" placeholder="Apartment">
+            <input type="text" class="form-control" name="telephone" placeholder="Telephone">
+          <button>
+            Add new number
+          </button>
+        </form>
+    </body>
+</html>
